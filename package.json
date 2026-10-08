@@ -2,6 +2,7 @@
   "name": "demodel",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "description": "Viewer for model file formats and their bytes",
   "main": "dist/main.js",
   "scripts": {
