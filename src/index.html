@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'" />
+  <title>DeModel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="menubar" class="menubar">
+    <button type="button" id="menu-file" class="menu-root">文件</button>
+    <button type="button" id="menu-edit" class="menu-root off">编辑</button>
+    <button type="button" id="menu-view" class="menu-root">显示</button>
+    <div id="path"></div>
+  </header>
+  <div id="app-menu" class="app-menu off"></div>
+  <div id="app-sub" class="app-menu off"></div>
+  <div id="ctx" class="app-menu off"></div>
+  <div id="hint-pop" class="off"></div>
+  <div class="workspace">
+    <aside id="side">
+      <div class="pane-search">
+        <input id="filter" type="text" spellcheck="false" autocomplete="off" placeholder="搜索内容" title="在树中搜索字段和值" />
+      </div>
+      <div class="list-wrap tree-wrap">
+        <div id="j-view"></div>
+        <div id="j-bar" class="vbar"><div id="j-thumb" class="thumb"></div></div>
+      </div>
+    </aside>
+    <div id="split" title="拖动调整宽度"></div>
+    <section class="hex-pane">
+      <div class="pane-search hex-search">
+        <input id="bin-search" type="text" spellcheck="false" autocomplete="off" placeholder="二进制搜索，回车查找下一个" title="十六进制用 0x 或空格分隔，其余按文本" />
+        <label class="goto">跳转
+          <input id="goto" type="text" spellcheck="false" autocomplete="off" placeholder="0x1A 或 26" title="Ctrl+G" />
+        </label>
+      </div>
+      <div class="hex-body">
+        <div class="hex-main">
+          <div id="hex-head"></div>
+          <div id="hex-view"></div>
+        </div>
+        <div id="hex-bar" class="vbar">
+          <div id="hex-mark" class="off"></div>
+          <div id="hex-thumb" class="thumb"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer id="inspector">
+    <div id="ins-top">
+      <div id="ins-loc">未打开文件。大文件只读取当前可见字节。</div>
+      <div id="ins-sel"></div>
+    </div>
+    <div id="ins-decode">
+      <div id="ins-addr"></div>
+      <div class="decode-main">
+        <div class="decode-tools">
+          <div id="chip-radix" class="decode-switch">
+            <button type="button" data-radix="10" class="on">10</button>
+            <button type="button" data-radix="16">16</button>
+          </div>
+          <div id="chip-unit" class="decode-switch">
+            <button type="button" data-unit="U8" class="on">u8</button>
+            <button type="button" data-unit="I8">i8</button>
+            <button type="button" data-unit="U16">u16</button>
+            <button type="button" data-unit="I16">i16</button>
+            <button type="button" data-unit="F16">f16</button>
+            <button type="button" data-unit="BF16">bf16</button>
+            <button type="button" data-unit="U32">u32</button>
+            <button type="button" data-unit="I32">i32</button>
+            <button type="button" data-unit="F32">f32</button>
+            <button type="button" data-unit="U64">u64</button>
+            <button type="button" data-unit="I64">i64</button>
+            <button type="button" data-unit="F64">f64</button>
+          </div>
+        </div>
+        <div id="ins-vals" class="values"></div>
+      </div>
+    </div>
+  </footer>
+  <script src="renderer.js"></script>
+</body>
+</html>

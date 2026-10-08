@@ -1,0 +1,19 @@
+{
+  "name": "demodel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Viewer for model file formats and their bytes",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc && copy /Y src\\index.html dist\\index.html && copy /Y src\\style.css dist\\style.css && if not exist dist\\icons mkdir dist\\icons && copy /Y node_modules\\lucide-static\\icons\\check.svg dist\\icons\\check.svg && copy /Y node_modules\\lucide-static\\icons\\info.svg dist\\icons\\info.svg",
+    "start": "npm run build && electron .",
+    "dev": "npm run build && concurrently -n tsc,app \"tsc --watch --preserveWatchOutput\" \"electron .\""
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "concurrently": "^10.0.5",
+    "electron": "^44.7.0",
+    "lucide-static": "^1.53.0",
+    "typescript": "^7.0.2"
+  }
+}
